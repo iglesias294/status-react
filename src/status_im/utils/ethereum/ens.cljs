@@ -129,4 +129,11 @@
             ens-name
             #(addr % ens-name cb)))
 
+(defn get-pubkey
+  [registry ens-name cb]
+  {:pre [(is-valid-eth-name? ens-name)]}
+  (resolver registry
+            ens-name
+            #(pubkey % ens-name cb)))
+
 ;; TODO ABI, pubkey
